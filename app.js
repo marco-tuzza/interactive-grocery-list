@@ -11,6 +11,9 @@ list.forEach((item) => {
     const label = document.createElement("label");
     label.htmlFor = item;
     label.appendChild(document.createTextNode(item));
-    listElement.appendChild(checkbox);
-    listElement.appendChild(label);
+
+    const div = document.createElement("div");
+    div.appendChild(checkbox);
+    div.appendChild(label);
+    listElement.appendChild(div);
 });
