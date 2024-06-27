@@ -34,4 +34,5 @@ h1 {
     width: 300px;
     margin: 1rem;
     cursor: pointer;
+    text-transform: capitalize;
 }
