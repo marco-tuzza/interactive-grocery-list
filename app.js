@@ -1,5 +1,9 @@
 // Define the list of items
-const list = ["apple", "banana", "cherry"];
+const list = {
+    "Fruit": ["apple", "banana", "cherry"],
+    "Snacks": ["chips", "chocolate"],
+    "Necessities": ["toothpaste", "soap"]
+};
 
 // Get references to DOM elements
 const listElement = document.getElementById("list");
@@ -8,12 +12,18 @@ const displayArea = document.getElementById('displayArea');
 
 // Initializes the list with checkboxes
 function initializeList() {
-    list.forEach(item => {
-        const checkbox = createCheckboxForItem(item);
-        const label = createLabelForItem(item);
-        const div = createListItemDiv(checkbox, label);
+    Object.entries(list).forEach(([category, items]) => {
+        const categoryTitle = document.createElement('h3');
+        categoryTitle.textContent = category;
+        listElement.appendChild(categoryTitle);
 
-        listElement.appendChild(div);
+        items.forEach(item => {
+            const checkbox = createCheckboxForItem(item);
+            const label = createLabelForItem(item);
+            const div = createListItemDiv(checkbox, label);
+
+            listElement.appendChild(div);
+        });
     });
 }
 
