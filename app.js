@@ -9,22 +9,34 @@ const list = {
 const listElement = document.getElementById("list");
 const generateListButton = document.getElementById('generateList');
 const displayArea = document.getElementById('displayArea');
+const clearListButton = document.getElementById('clearList');
 
 // Initializes the list with checkboxes
 function initializeList() {
     Object.entries(list).forEach(([category, items]) => {
+        const categoryDiv = document.createElement('div');
+        categoryDiv.classList.add('category');
+
         const categoryTitle = document.createElement('h3');
         categoryTitle.textContent = category;
-        listElement.appendChild(categoryTitle);
+
+        categoryDiv.appendChild(categoryTitle);
+        listElement.appendChild(categoryDiv);
 
         items.forEach(item => {
             const checkbox = createCheckboxForItem(item);
             const label = createLabelForItem(item);
             const div = createListItemDiv(checkbox, label);
 
-            listElement.appendChild(div);
+            categoryDiv.appendChild(div);
         });
     });
+}
+
+function clearList() {
+    listElement.innerHTML = '';
+    displayArea.innerHTML = '';
+    initializeList();
 }
 
 // Creates a checkbox for a given item
@@ -62,6 +74,8 @@ function setupListItemClickListener() {
             checkbox.checked = !checkbox.checked;
         }
     });
+
+    clearListButton.addEventListener('click', clearList);
 }
 
 // Event listener for the "Generate List" button to display selected items
