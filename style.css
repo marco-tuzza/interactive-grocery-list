@@ -19,6 +19,8 @@ h1 {
 div#list {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 div.category {
