@@ -10,9 +10,16 @@ body {
     color: #e2bbe9;
 }
 
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 h1 {
     text-align: center;
-    margin-top: 2rem;
     margin-bottom: 2rem;
 }
 
@@ -64,6 +71,21 @@ div#buttons {
     margin-top: 2rem;
 }
 
+div#displayArea {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+div#displayArea li {
+    list-style-type: none;
+    margin: 0.5rem;
+    color: #e2bbe9;
+    text-transform: capitalize;
+}
+
 button {
     color: #5a639c;
     border: none;
@@ -79,4 +101,8 @@ button#generateList {
 
 button#clearList {
     background-color: #faa0a0;
+}
+
+button#copyList {
+    background-color: #f9f871;
 }

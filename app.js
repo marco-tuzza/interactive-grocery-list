@@ -108,6 +108,7 @@ const listElement = document.getElementById("list");
 const generateListButton = document.getElementById('generateList');
 const displayArea = document.getElementById('displayArea');
 const clearListButton = document.getElementById('clearList');
+const copyListButton = document.getElementById('copyList');
 
 // Initializes the list with checkboxes
 function initializeList() {
@@ -183,9 +184,18 @@ function setupGenerateListButtonListener() {
 
         document.querySelectorAll('#list input[type="checkbox"]:checked').forEach(checkbox => {
             const listItem = document.createElement('li');
-            listItem.textContent = checkbox.value;
+            listItem.textContent = checkbox.value.charAt(0).toUpperCase() + checkbox.value.slice(1);
             displayArea.appendChild(listItem);
         });
+    });
+}
+
+// Event listener for the "Copy List" button to copy the list in the clipboard
+function setupCopyListButtonListener() {
+    copyListButton.addEventListener('click', () => {
+        const listItems = Array.from(displayArea.children).map(li => li.textContent).join('\n');
+        navigator.clipboard.writeText(listItems);
+        alert('List copied to clipboard!');
     });
 }
 
@@ -194,6 +204,7 @@ function setupPage() {
     initializeList();
     setupListItemClickListener();
     setupGenerateListButtonListener();
+    setupCopyListButtonListener();
 }
 
 // Call setupPage to initialize everything
