@@ -71,12 +71,13 @@ div#list div.category div.list-item:hover {
     background-color: var(--hover-color);
 }
 
-div#list div.category div.list-item input[type="checkbox"] {
-    display: none;
+div#list div.category div.list-item.selected {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
-div#list div.category div.list-item input[type="checkbox"]:checked + label {
-    text-decoration: line-through;
+div#list div.category div.list-item input[type="checkbox"] {
+    display: none;
 }
 
 div#buttons {

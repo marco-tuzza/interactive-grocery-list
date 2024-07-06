@@ -98,6 +98,15 @@ function setupCopyListButtonListener() {
     });
 }
 
+function toggleClassListElement() {
+    const divs = document.querySelectorAll(".list-item");
+    divs.forEach(element => {
+        element.addEventListener("click", () => {
+            element.classList.toggle("selected");
+        });
+    });
+}
+
 function copyListButtonVisibility(showButton = false) {
     showButton === true ? copyListButton.style.display = 'block' : copyListButton.style.display = 'none';
 }
@@ -109,6 +118,7 @@ function setupPage() {
     setupGenerateListButtonListener();
     setupCopyListButtonListener();
     copyListButtonVisibility();
+    toggleClassListElement();
 }
 
 // Call setupPage to initialize everything
